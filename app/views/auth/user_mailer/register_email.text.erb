@@ -1,0 +1,9 @@
+Welcome to our site!
+================================================
+You have successfully signed up to example.com,
+your nickname is: <%= @user.nickname %>.
+
+Copy the URL below to congirm your email:
+<%= confirm_email_url(@user.confirmation_token) %>
+
+Thanks for joining and have a great day!

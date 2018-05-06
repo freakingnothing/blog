@@ -1,0 +1,12 @@
+<nav class='navbar-light sticky-top' style='background-color: #e3f2fd;'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-8 offset-md-2 row custom-navbar-layout'>
+        <%= link_to 'BLOG', root_path, class: 'navbar-brand mb-0 h1'%>
+        <ul class='navbar-nav ml-auto custom-navbar-layout'>
+          <%= render_user_auth_nav %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

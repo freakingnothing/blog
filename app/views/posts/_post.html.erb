@@ -1,0 +1,25 @@
+<div>
+  <div class='row'>
+    <article class='col-md-8'>
+      <h2><%= link_to post.title, post_path(post), class: 'text-dark' %></h2>
+      <p><%= time_ago_in_words(post.published_at) %> ago</p>
+      <p><%= post.body %></p>
+      <p>Comments(<%= post.comments.count %>)</p>
+      <ul>
+        <% post.tags.each do |tag| %>
+          <li><%= tag.name %></li>
+        <% end %>
+      </ul>
+    </article>
+    <% if current_user && current_user.admin? %>
+      <div class='col-md-3'>
+        <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-outline-info'%>
+        <%= link_to 'Delete', post_path(post),
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' },
+                              class: 'btn btn-outline-dark'%>
+      </div>
+    <% end %>
+  </div>
+</div>
+<hr>

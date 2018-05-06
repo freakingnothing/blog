@@ -1,0 +1,26 @@
+<div class='card'>
+  <div class='card-body'>
+    <h6 class='card-subtitle mb-2 text-muted'>
+      <% if comment.user %>
+        <%= comment.user.nickname %> (<%= comment.user.email%>)
+      <% else %>
+        Deleted account
+      <% end %>
+    </h6>
+    <div class='card-text'>
+      <%= comment.body %>
+    </div>
+  </div>
+  <% if current_user && comment.user_id == current_user.id || current_user && current_user.admin? %>
+    <div class='col-md-3'>
+      <%= link_to 'Delete', post_comment_path(comment),
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' },
+                            class: 'btn btn-outline-dark'%>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+

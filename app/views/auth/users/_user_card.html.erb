@@ -1,0 +1,8 @@
+<div class="card">
+  <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= current_user.nickname %></h5>
+    <p class="card-text"><%= current_user.email %></p>
+    <p class="card-text">Joined <%= current_user.created_at.strftime("%F") %></p>
+  </div>
+</div>

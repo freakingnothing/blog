@@ -1,0 +1,8 @@
+.post {
+  border-bottom: 1px solid #eee;
+}
+
+.post-action-btn:not(:last-child) {
+  display: inline-block;
+  margin-right: 8px;
+}

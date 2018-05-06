@@ -1,0 +1,14 @@
+<% if current_user && current_user.admin? %>
+  <%= link_to 'New post', new_post_path, class:'btn btn-outline-secondary' %>
+<% end %>
+
+<div>
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>
+
+<div>
+  <%= paginate @posts %>
+</div>
+

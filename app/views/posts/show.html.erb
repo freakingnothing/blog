@@ -1,0 +1,12 @@
+<%= render @post %>
+
+<h3>Comments</h3>
+<%= render @post.comments %>
+
+<% if current_user %>
+<%= render 'comments/form' %>
+<% end %>
+
+<div>
+  <%= link_to 'Back', posts_path, class: 'btn btn-outline-secondary' %>
+</div>
