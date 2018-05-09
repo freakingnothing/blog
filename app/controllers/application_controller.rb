@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -12,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_user
-    redirect_to root_path unless current_user && current_user.admin?
+    redirect_to root_path unless current_user&.admin?
   end
 end

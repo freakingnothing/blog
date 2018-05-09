@@ -1,8 +1,14 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :admin_user, except: [:index, :show]
+  before_action :admin_user, except: %i[index show]
 
   def index
     @posts = Post.published.order('published_at DESC').page(params[:page]).per(10)
+  end
+
+  def draft_posts
+    @posts = Post.draft.order('updated_at DESC').page(params[:page]).per(10)
   end
 
   def show
@@ -38,12 +44,12 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :tag_ids => [])
+    params.require(:post).permit(:state_event, :title, :body, tag_ids: [])
   end
 end

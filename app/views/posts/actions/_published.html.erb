@@ -1,0 +1,4 @@
+<%= form_with(model: @post, local: true) do |f| %>
+  <%= f.hidden_field :state_event, value: :unpublish %>
+  <%= f.submit 'Un-publish', class: 'btn btn-success btn-block' %>
+<% end %>

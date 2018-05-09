@@ -3,7 +3,7 @@
 <h3>Comments</h3>
 <%= render @post.comments %>
 
-<% if current_user %>
+<% if current_user && @post.published? %>
 <%= render 'comments/form' %>
 <% end %>
 

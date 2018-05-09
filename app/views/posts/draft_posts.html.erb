@@ -1,6 +1,5 @@
 <% if current_user && current_user.admin? %>
   <%= link_to 'New post', new_post_path, class:'btn btn-outline-secondary' %>
-  <%= link_to 'Draft posts', draft_path, class: 'btn-outline-secondary' %>
 <% end %>
 
 <div>
@@ -12,4 +11,3 @@
 <div>
   <%= paginate @posts %>
 </div>
-

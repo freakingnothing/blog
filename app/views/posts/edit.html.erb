@@ -1,7 +1,9 @@
 <h1>Edit post</h1>
 
+<div class='action_bar'>
+  <%= render "posts/actions/#{@post.status}" %>
+</div>
+
 <%= render 'form' %>
 
-<div class='actions col-md-8 offset-md-2'>
-  <%= link_to 'Back', post_path, class: 'post-action-btn' %>
-</div>
+<%= link_to 'Back', post_path, class: 'post-action-btn' %>

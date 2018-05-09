@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   extend FriendlyId
-  friendly_id :nickname, use: [:slugged, :finders]
   
+  friendly_id :nickname, use: %i[slugged finders]
+
   has_secure_password
 
   has_many :comments
@@ -24,13 +27,13 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.admin_role == true
+    admin_role == true
   end
-  
+
   private
 
   def generate_confirmation_token
-    if self.confirmation_token.blank?
+    if confirmation_token.blank?
       self.confirmation_token = SecureRandom.urlsafe_base64.to_s
     end
   end

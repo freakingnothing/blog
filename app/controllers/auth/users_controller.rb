@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Auth::UsersController < Auth::BaseController
   def show
     @user = User.friendly.find(params[:id])
@@ -25,9 +27,9 @@ class Auth::UsersController < Auth::BaseController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      flash[:error] = "Your email is already confirmed."
+      flash[:error] = 'Your email is already confirmed.'
       redirect_to login_path
-   end
+    end
   end
 
   private
