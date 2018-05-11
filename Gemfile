@@ -27,6 +27,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'kaminari'
 gem 'friendly_id', '~> 5.2.4'
 gem 'stateful_enum'
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
