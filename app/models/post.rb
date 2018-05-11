@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings, dependent: :destroy
 
   validates :title, :body, presence: true
-
+  
   after_save :trigger_state, if: :state_event
 
   enum status: { draft: 0, published: 1 } do

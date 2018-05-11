@@ -1,12 +1,15 @@
+<%= render "posts/actions/#{@post.status}"%>
+
 <%= render @post %>
 
 <h3>Comments</h3>
 <%= render @post.comments %>
 
 <% if current_user && @post.published? %>
-<%= render 'comments/form' %>
+  <%= render 'comments/form' %>
 <% end %>
 
 <div>
   <%= link_to 'Back', posts_path, class: 'btn btn-outline-secondary' %>
 </div>
+

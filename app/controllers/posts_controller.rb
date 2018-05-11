@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.publish if publishing?
     if @post.save
       redirect_to @post
     else
@@ -34,6 +35,8 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.publish if publishing?
+    @post.unpublish if unpublishing?
     if @post.update(post_params)
       redirect_to @post
     else
@@ -43,13 +46,22 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post_status = @post.status
     @post.destroy
-    redirect_to root_path
+    @post_status == 'published' ? (redirect_to root_path) : (redirect_to draft_path)
   end
 
   private
 
   def post_params
     params.require(:post).permit(:state_event, :title, :body, tag_ids: [])
+  end
+
+  def publishing?
+    params[:commit] == 'Publish'
+  end
+
+  def unpublishing?
+    params[:commit] == 'Un-publish'
   end
 end
