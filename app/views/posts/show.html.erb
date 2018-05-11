@@ -1,4 +1,6 @@
-<%= render "posts/actions/#{@post.status}"%>
+<% if current_user&.admin? %>
+  <%= render "posts/actions/#{@post.status}" %>
+<% end %>
 
 <%= render @post %>
 
