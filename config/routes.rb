@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   namespace :auth do
-    resources :users, only: %i[create show]
+    resources :users
   end
 
   get '/signup' => 'auth/users#new'

@@ -19,6 +19,20 @@ class Auth::UsersController < Auth::BaseController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to root_path
+    else
+      flash[:danger] = 'Current password is incorrect.'
+      render 'edit'
+    end
+  end
+
   def confirm_email
     @user = User.find_by_confirmation_token(params[:token])
     if @user
@@ -35,6 +49,6 @@ class Auth::UsersController < Auth::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
+    params.require(:user).permit(:nickname, :email, :current_password, :password, :password_confirmation)
   end
 end

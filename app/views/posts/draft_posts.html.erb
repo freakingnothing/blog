@@ -1,4 +1,4 @@
-<% if current_user && current_user.admin? %>
+<% if current_user&.admin? %>
   <%= link_to 'New post', new_post_path, class:'btn btn-outline-secondary' %>
 <% end %>
 
