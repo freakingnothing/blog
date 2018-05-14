@@ -1,0 +1,8 @@
+<div class='form-group'>
+  <% if current_user.avatar.attached? %>
+    <%= image_tag current_user.avatar.variant(resize: '300x300') %>
+    <%= link_to 'Remove current avatar', avatar_path(current_user.avatar.signed_id),
+                                         method: :delete,
+                                         class: 'btn btn-outline-dark'%>
+  <% end %>
+</div>

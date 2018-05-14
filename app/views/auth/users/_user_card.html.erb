@@ -1,9 +1,9 @@
 <div class="card">
-  <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
   <div class="card-body">
+    <%= render 'avatars/avatar' %>
     <h5 class="card-title"><%= current_user.nickname %></h5>
     <p class="card-text"><%= current_user.email %></p>
     <p class="card-text">Joined <%= current_user.created_at.strftime("%F") %></p>
-    <p class="card-text"><%= link_to 'Change password', edit_auth_user_path(current_user) %></p>
+    <p class="card-text"><%= link_to 'Edit profile', edit_auth_user_path(current_user) %></p>
   </div>
 </div>

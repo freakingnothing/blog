@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   end
 
   namespace :auth do
-    resources :users
+    resources :users do
+    end
   end
+
+  resources :avatars
 
   get '/signup' => 'auth/users#new'
   post '/signup' => 'auth/users#create'

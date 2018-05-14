@@ -26,10 +26,9 @@ class Auth::UsersController < Auth::BaseController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to root_path
+      redirect_to auth_user_path(@user)
     else
-      flash[:danger] = 'Current password is incorrect.'
-      render 'edit'
+      redirect_to edit_auth_user_path
     end
   end
 
@@ -49,6 +48,6 @@ class Auth::UsersController < Auth::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :current_password, :password, :password_confirmation)
+    params.require(:user).permit(:nickname, :email, :current_password, :password, :password_confirmation, :avatar)
   end
 end

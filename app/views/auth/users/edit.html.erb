@@ -1,19 +1,5 @@
-<%= form_with(model: @user, url: { action: 'update' } ) do |f| %>
-  <div class='form-group'>
-    <div class='form-group'>
-      <%= f.label :current_password %><br />
-      <%= f.password_field :current_password, autocomplete: 'off', class: 'form-control'  %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :password, 'New password' %><br />
-      <%= f.password_field :password, autocomplete: 'off', class: 'form-control'  %>
-    </div>
-    <div class='form-group'>
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-    <div class='form-group'>
-      <%= f.submit 'Update', class: 'btn btn-block btn-success' %>
-    </div>
-  </div>
-<% end %>
+<h1>Edit profile</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', auth_user_path(current_user) %>
