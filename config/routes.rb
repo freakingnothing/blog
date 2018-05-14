@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   end
 
   namespace :auth do
-    resources :users do
-    end
+    resources :users
   end
 
   resources :avatars
